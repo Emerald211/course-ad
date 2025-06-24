@@ -280,25 +280,7 @@ const Home: React.FC = () => {
 						</p>
 					</div>
 
-					{/* Email Collection */}
-					<div className='max-w-md mx-auto mb-8'>
-						<div className='bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-yellow-400'>
-							<h3 className='text-xl font-bold mb-4 text-yellow-400'>
-								Enter Your Email to Continue
-							</h3>
-							<input
-								type='email'
-								value={email}
-								onChange={handleEmailChange}
-								placeholder='Enter your email address'
-								className='w-full px-4 py-3 bg-white/10 border-2 border-white/20 rounded-xl text-white placeholder-gray-300 focus:border-yellow-400 focus:outline-none mb-4'
-								required
-							/>
-							<p className='text-sm text-gray-300'>
-								Your email is secure and will only be used for course access.
-							</p>
-						</div>
-					</div>
+				
 
 					{/* Video Section */}
 					<div className='relative max-w-5xl mx-auto mb-8'>
@@ -408,7 +390,7 @@ const Home: React.FC = () => {
 									</div>
 									<p className='text-lg'>
 										<strong className='text-green-400'>Investment:</strong>{' '}
-										₦6,000 for 2 medium catfish + feed + basic tools
+										₦70,000 for 2 mature catfish + feed + basic tools
 									</p>
 								</div>
 								<div className='flex items-start space-x-4'>
@@ -416,7 +398,7 @@ const Home: React.FC = () => {
 										<span className='text-white font-bold'>2</span>
 									</div>
 									<p className='text-lg'>
-										<strong className='text-yellow-400'>Result:</strong> 2,000
+										<strong className='text-yellow-400'>Result:</strong> 20,000
 										baby catfish after breeding
 									</p>
 								</div>
@@ -425,7 +407,7 @@ const Home: React.FC = () => {
 										<span className='text-white font-bold'>3</span>
 									</div>
 									<p className='text-lg'>
-										<strong className='text-green-400'>Sales:</strong> ₦760 per
+										<strong className='text-green-400'>Sales:</strong> ₦30 per
 										catfish after 4 months
 									</p>
 								</div>
@@ -434,7 +416,7 @@ const Home: React.FC = () => {
 										<span className='text-white font-bold'>💰</span>
 									</div>
 									<p className='text-xl font-bold text-yellow-400'>
-										PROFIT: ₦380,000 per cycle!
+										PROFIT: ₦530,000 per cycle!
 									</p>
 								</div>
 							</div>
@@ -444,15 +426,15 @@ const Home: React.FC = () => {
 									⚠️ EVEN IF YOU'RE A COMPLETE BEGINNER ⚠️
 								</p>
 								<p className='text-lg text-center'>
-									With just 1,000 baby catfish, you STILL make{' '}
+									With just 10,000 baby catfish, you STILL make{' '}
 									<span className='text-green-400 font-bold'>
-										₦190,000 profit!
+										₦230,000 profit!
 									</span>
 								</p>
 								<p className='text-lg text-center mt-2'>
 									Repeat 6 times yearly ={' '}
 									<span className='text-yellow-400 font-bold text-2xl'>
-										₦1.14 MILLION+
+										₦1.38 MILLION+
 									</span>
 								</p>
 							</div>
@@ -497,7 +479,7 @@ const Home: React.FC = () => {
 
 						<div className='bg-gradient-to-r from-green-600/30 to-emerald-600/30 border-2 border-green-400 rounded-2xl p-8 shadow-2xl shadow-green-500/30'>
 							<h3 className='text-2xl font-bold mb-6 text-green-400 text-center'>
-								🎯 But breeding catfish babies? THAT'S the GOLDMINE! 🎯
+								🎯 But hatching catfish eggs ? THAT'S the GOLDMINE! 🎯
 							</h3>
 							<div className='grid md:grid-cols-2 gap-4'>
 								{courseFeatures.map((feature: CourseFeature, index: number) => (
@@ -643,6 +625,26 @@ const Home: React.FC = () => {
 									❌ OR we close enrollment completely
 								</p>
 							</div>
+
+								{/* Email Collection */}
+					<div className='max-w-md mx-auto mb-8'>
+						<div className='bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-yellow-400'>
+							<h3 className='text-xl font-bold mb-4 text-yellow-400'>
+								Enter Your Email to Continue
+							</h3>
+							<input
+								type='email'
+								value={email}
+								onChange={handleEmailChange}
+								placeholder='Enter your email address'
+								className='w-full px-4 py-3 bg-white/10 border-2 border-white/20 rounded-xl text-white placeholder-gray-300 focus:border-yellow-400 focus:outline-none mb-4'
+								required
+							/>
+							<p className='text-sm text-gray-300'>
+								Your email is secure and will only be used for course access.
+							</p>
+						</div>
+					</div>
 
 							<button
 								onClick={handleSecureSpot}
