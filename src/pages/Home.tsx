@@ -30,36 +30,36 @@ interface Bonus {
 interface PaystackResponse {
 	reference: string;
 	status: string;
-  }
-  
-  interface PaystackConfig {
+}
+
+interface PaystackConfig {
 	key: string;
 	email: string;
 	amount: number;
 	currency: string;
 	ref: string;
 	metadata: {
-	  custom_fields: Array<{
-		display_name: string;
-		variable_name: string;
-		value: string;
-	  }>;
+		custom_fields: Array<{
+			display_name: string;
+			variable_name: string;
+			value: string;
+		}>;
 	};
 	callback: (response: PaystackResponse) => void;
 	onClose: () => void;
-  }
-  
-  interface PaystackPop {
+}
+
+interface PaystackPop {
 	setup: (config: PaystackConfig) => {
-	  openIframe: () => void;
+		openIframe: () => void;
 	};
-  }
-  
-  declare global {
+}
+
+declare global {
 	interface Window {
-	  PaystackPop: PaystackPop;
+		PaystackPop: PaystackPop;
 	}
-  }
+}
 
 const Home: React.FC = () => {
 	const [showVideo, setShowVideo] = useState<boolean>(false);
@@ -68,16 +68,17 @@ const Home: React.FC = () => {
 	const navigate = useNavigate();
 	const paystackPublicKey = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
 
-
+	const scrollToBottom = () => {
+		window.scrollTo({
+			top: document.documentElement.scrollHeight,
+			behavior: 'smooth',
+		});
+	};
 
 	const benefits: Benefit[] = [
 		{ text: "It's expensive (feeds, maintenance, space)", isPositive: false },
 		{ text: 'It takes too long', isPositive: false },
 		{ text: 'Fish farming is difficult', isPositive: false },
-		{
-			text: "But nothing could be further! That's a different game entirely.",
-			isPositive: true,
-		},
 	];
 
 	const courseFeatures: CourseFeature[] = [
@@ -101,28 +102,26 @@ const Home: React.FC = () => {
 
 	const bonuses: Bonus[] = [
 		{
-			title: 'Online Business Integration',
+			title: 'Step-by-Step Video Tutorials',
 			description:
-				"Stay the only online business – You'll run watch fish from comfort your's YouTube video – this is detailed and direct",
+				'Watch me hatch fish from scratch (not a Youtube video - this is detailed and direct)',
 		},
 		{
 			title: 'Family-Scale Farming',
 			description:
-				'How to grow fish by your own family in low cost – that money go food',
+				'How to grow fish by your own family at low cost – save money on food',
 		},
 		{
-			title: 'Expert Fish Selection',
-			description:
-				'Expert fish selection – choose broodstock that finalize your profits',
+			title: 'Parent Fish Selection',
+			description: 'Choose broadstock that multiply your profits',
 		},
 		{
-			title: 'Fingerlings Preparation',
-			description:
-				'Fingerlings prep system – step raising healthy fish in weeks',
+			title: 'Fingerlings Care System',
+			description: 'Raise strong healthy fish in weeks',
 		},
 		{
-			title: 'Setting Profile Guide',
-			description: 'Setting profile – how to eat bogus here before see lunch',
+			title: 'Selling Guides',
+			description: 'How to get buyers even before you hatch',
 		},
 		{
 			title: 'Feed Formulation Secrets',
@@ -131,11 +130,7 @@ const Home: React.FC = () => {
 		{
 			title: 'Community Access',
 			description:
-				'Support group access – join a growing community of fish farmers',
-		},
-		{
-			title: 'Study Materials',
-			description: 'Best view study guide – start with step backtest on learn',
+				'Support group access – join a growing community of fish hatchers',
 		},
 	];
 
@@ -170,24 +165,24 @@ const Home: React.FC = () => {
 			currency: 'NGN',
 			ref: 'catfish_course_' + Math.floor(Math.random() * 1000000000 + 1),
 			metadata: {
-			  custom_fields: [
-				{
-				  display_name: 'Course Name',
-				  variable_name: 'course_name',
-				  value: 'Catfish Breeding Masterclass',
-				},
-			  ],
+				custom_fields: [
+					{
+						display_name: 'Course Name',
+						variable_name: 'course_name',
+						value: 'Catfish Breeding Masterclass',
+					},
+				],
 			},
 			callback: function (response: PaystackResponse) {
-			  console.log('Payment successful:', response);
-			  setIsLoading(false);
-			  navigate('/access-course');
+				console.log('Payment successful:', response);
+				setIsLoading(false);
+				navigate('/access-course');
 			},
 			onClose: function () {
-			  console.log('Payment popup closed');
-			  setIsLoading(false);
+				console.log('Payment popup closed');
+				setIsLoading(false);
 			},
-		  });
+		});
 
 		handler.openIframe();
 	};
@@ -280,8 +275,6 @@ const Home: React.FC = () => {
 						</p>
 					</div>
 
-				
-
 					{/* Video Section */}
 					<div className='relative max-w-5xl mx-auto mb-8'>
 						<div
@@ -311,8 +304,15 @@ const Home: React.FC = () => {
 								LIVE
 							</div>
 						</div>
+					<button
+					onClick={scrollToBottom}
+					className='flex mt-8 text-center w-full  items-center justify-center bg-green-600 text-white px-4 py-5 rounded-lg shadow-md  transition'>
+					CLICK TO GET STARTED NOW
+				</button>
 					</div>
 				</div>
+
+				
 
 				{/* Social Proof and Urgency */}
 				<div className='max-w-4xl mx-auto mb-16'>
@@ -555,7 +555,7 @@ const Home: React.FC = () => {
 								<CheckCircle size={40} className='text-white' />
 							</div>
 							<h3 className='text-3xl font-bold mb-4 text-green-400'>
-								🛡️ IRON-CLAD MONEY-BACK GUARANTEE 🛡️
+								🛡️ 100% MONEY-BACK GUARANTEE 🛡️
 							</h3>
 							<p className='text-xl mb-4 text-green-200'>
 								If you don't make your first ₦50,000 within 6 months...
@@ -626,25 +626,26 @@ const Home: React.FC = () => {
 								</p>
 							</div>
 
-								{/* Email Collection */}
-					<div className='max-w-md mx-auto mb-8'>
-						<div className='bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-yellow-400'>
-							<h3 className='text-xl font-bold mb-4 text-yellow-400'>
-								Enter Your Email to Continue
-							</h3>
-							<input
-								type='email'
-								value={email}
-								onChange={handleEmailChange}
-								placeholder='Enter your email address'
-								className='w-full px-4 py-3 bg-white/10 border-2 border-white/20 rounded-xl text-white placeholder-gray-300 focus:border-yellow-400 focus:outline-none mb-4'
-								required
-							/>
-							<p className='text-sm text-gray-300'>
-								Your email is secure and will only be used for course access.
-							</p>
-						</div>
-					</div>
+							{/* Email Collection */}
+							<div className='max-w-md mx-auto mb-8'>
+								<div className='bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-yellow-400'>
+									<h3 className='text-xl font-bold mb-4 text-yellow-400'>
+										Enter Your Email to Continue
+									</h3>
+									<input
+										type='email'
+										value={email}
+										onChange={handleEmailChange}
+										placeholder='Enter your email address'
+										className='w-full px-4 py-3 bg-white/10 border-2 border-white/20 rounded-xl text-white placeholder-gray-300 focus:border-yellow-400 focus:outline-none mb-4'
+										required
+									/>
+									<p className='text-sm text-gray-300'>
+										Your email is secure and will only be used for course
+										access.
+									</p>
+								</div>
+							</div>
 
 							<button
 								onClick={handleSecureSpot}
