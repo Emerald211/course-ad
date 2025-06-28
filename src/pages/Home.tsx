@@ -84,19 +84,19 @@ const Home: React.FC = () => {
 	const courseFeatures: CourseFeature[] = [
 		{
 			title: 'Learn space required',
-			description: 'Optimal pond sizing and setup',
+			description: 'Start in your backyard or even with Buckets!',
 		},
 		{
-			title: 'Set up the feeding cycle',
-			description: 'Proper feeding schedules and techniques',
+			title: 'Very low feeding costs',
+			description: 'Save 80% Compared to Farming Table-Size',
 		},
 		{
-			title: 'Fish farm business plan finance',
-			description: 'Complete financial planning guide',
+			title: 'High Demand from Local Fish Farmers',
+			description: 'Customers are already waiting & ready to Buy!',
 		},
 		{
-			title: 'Frame profit forecast',
-			description: 'Exact profit calculations and projections',
+			title: 'Faster Profit Turnover',
+			description: 'Hatch, Raise & Sell in 4-8 weeks',
 		},
 	];
 
@@ -146,13 +146,7 @@ const Home: React.FC = () => {
 		setEmail(e.target.value);
 	};
 
-	const handleGetAccess = async (): Promise<void> => {
-		setIsLoading(true);
-		// Simulate API call
-		await new Promise((resolve) => setTimeout(resolve, 1000));
-		console.log('Getting access for:', email);
-		setIsLoading(false);
-	};
+
 
 	const handlePaystackCheckout = (): void => {
 		setIsLoading(true);
@@ -304,11 +298,21 @@ const Home: React.FC = () => {
 								LIVE
 							</div>
 						</div>
-					<button
-					onClick={scrollToBottom}
-					className='flex mt-8 text-center w-full  items-center justify-center bg-green-600 text-white px-4 py-5 rounded-lg shadow-md  transition'>
-					CLICK TO GET STARTED NOW
-				</button>
+						<div className=' mt-5 text-center mb-12'>
+						<div className='bg-gradient-to-r from-red-600 to-orange-600 p-1 rounded-2xl mb-6 shadow-2xl shadow-red-500/50'>
+							<button
+								onClick={scrollToBottom}
+								disabled={isLoading}
+								className='w-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 disabled:opacity-50 disabled:cursor-not-allowed text-black text-3xl font-black py-8 px-12 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300'>
+								{isLoading
+									? '⏳ PROCESSING...'
+									: '🚀 GET INSTANT ACCESS NOW - ₦2,000 🚀'}
+							</button>
+						</div>
+						<p className='text-lg text-yellow-400 animate-pulse'>
+							👆 Click above to secure your spot before it's gone!
+						</p>
+					</div>
 					</div>
 				</div>
 
@@ -573,7 +577,7 @@ const Home: React.FC = () => {
 					<div className='text-center mb-12'>
 						<div className='bg-gradient-to-r from-red-600 to-orange-600 p-1 rounded-2xl mb-6 shadow-2xl shadow-red-500/50'>
 							<button
-								onClick={handleGetAccess}
+								onClick={scrollToBottom}
 								disabled={isLoading}
 								className='w-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 disabled:opacity-50 disabled:cursor-not-allowed text-black text-3xl font-black py-8 px-12 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300'>
 								{isLoading
@@ -630,7 +634,7 @@ const Home: React.FC = () => {
 							<div className='max-w-md mx-auto mb-8'>
 								<div className='bg-black/30 backdrop-blur-sm rounded-2xl p-6 border-2 border-yellow-400'>
 									<h3 className='text-xl font-bold mb-4 text-yellow-400'>
-										Enter Your Email to Continue
+										Enter Your Email First!
 									</h3>
 									<input
 										type='email'
