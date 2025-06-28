@@ -83,7 +83,7 @@ const Home: React.FC = () => {
 
 	const courseFeatures: CourseFeature[] = [
 		{
-			title: 'Learn space required',
+			title: 'Less space required',
 			description: 'Start in your backyard or even with Buckets!',
 		},
 		{
