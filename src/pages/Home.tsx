@@ -230,7 +230,12 @@ const Home: React.FC = () => {
 			const randomName =
 				nigerianNames[Math.floor(Math.random() * nigerianNames.length)];
 			setNotification({ name: randomName, amount: 2000 });
-			setSpotsLeft((prev) => Math.max(0, prev - 1));
+			setSpotsLeft((prev) => {
+				if (prev > 3) {
+					return prev - 1;
+				}
+				return 3;
+			});
 			notificationTimeoutRef.current = setTimeout(() => {
 				setNotification(null);
 			}, 5000);
