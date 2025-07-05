@@ -377,11 +377,8 @@ const Home: React.FC = () => {
 	};
 
 	const handleTransferPayment = (): void => {
-		// WhatsApp message for bank transfer
-		const whatsappMessage = `Hello, I've made a transfer for the Catfish Breeding Masterclass. My email is ${email}. Please find my payment receipt attached.`;
-		const whatsappLink = `https://wa.link/531kt2?text=${encodeURIComponent(
-			whatsappMessage
-		)}`; // Replace with your actual WhatsApp number
+
+		const whatsappLink = `https://wa.link/l24ezs`; 
 		window.open(whatsappLink, '_blank');
 		setShowPaymentModal(false); // Close modal
 	};
